@@ -1,0 +1,33 @@
+#
+#  Contenedor MySQL
+#
+#             +--------------+
+#  ---> 33000:|    mysql   --|--- (( BD persistente /var/lib/mysql ))
+#             +--------------+  
+#
+
+##  ===========================================================================
+#   MySQL server. 
+#   
+#   En este ejemplo escucho por el puerto 33000 y lo empleo para servir 
+#   la base de datos de un servicio de correo electrónico. La base de datos
+#   será consumida por postfix, courier-imap, amavisd, roundcube, etc...
+#
+mysql:
+  
+  image: luispa/base-mysql
+  
+  environment:
+    MYSQL_ROOT_PASSWORD: miContraseñaDeRoot
+  
+  # Directorio de datos de MySQL: /var/lib/mysql
+  volumes:
+    - "/Apps/data/correo/db/mysql:/var/lib/mysql"  
+    - "/etc/localtime:/etc/localtime:ro"
+
+  # Puerto externo
+  ports:
+    - "33000:3306"
+
+  command: /usr/local/mysql/bin/mysqld --datadir=/var/lib/mysql --user=mysql
+
