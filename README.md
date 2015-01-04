@@ -1,6 +1,6 @@
 # Introducción
 
-Este repositorio contiene un ejemplo del fichero de configuración [fig](http://www.fig.sh/index.html) para instanciar MySQL (servicio de Base de Datos). Está basado en el contenedor Docker [luispa/base-mysql](https://registry.hub.docker.com/u/luispa/base-mysql/) (GitHub [base-mysql](https://github.com/LuisPalacios/base-mysql)). 
+Este repositorio contiene un ejemplo del fichero de configuración [fig](http://www.fig.sh/index.html) para instanciar MySQL (servicio de Base de Datos). Está basado en el contenedor Docker [luispa/base-mysql](https://registry.hub.docker.com/u/luispa/base-mysql/) (GitHub [base-mysql](https://github.com/LuisPalacios/base-mysql)). Mi contenedor está basado en el oficial [aquí](https://registry.hub.docker.com/_/mysql/) y [aquí](https://github.com/docker-library/mysql).
 
 Veamos el ejemplo de uso: montar varios contenedores para dar un servicio de Correo electrónico y que todos utilicen la misma base de datos. Consulta este [apunte técnico sobre varios servicios en contenedores Docker](http://www.luispa.com/?p=172) para acceder a todos los contenedores Docker y fuentes en GitHub.
 
