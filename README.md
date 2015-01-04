@@ -9,7 +9,7 @@ Veamos el ejemplo de uso: montar varios contenedores para dar un servicio de Cor
 
 Para automatizar con el programa [fig](http://www.fig.sh/index.html) y que arranquen el contenedor descarga y renombra el fichero fig-template.yml, modifica las variables y ejecuta el programa: 
 
-    $ git clone https://github.com/LuisPalacios/servicio-log.git
+    $ git clone https://github.com/LuisPalacios/servicio-db-correo.git
     :
     $ mv fig-template.yml fig.yml   (edita a tu gusto)
     :
