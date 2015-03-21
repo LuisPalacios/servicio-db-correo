@@ -1,0 +1,13 @@
+[Unit]
+Description=Servicio DB Correo
+Wants=network.target rpc-statd.service docker.service
+After=network.target rpc-statd.service docker.service Apps.mount
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /Apps/docker/servicio-db-correo/start-fig.sh
+ExecStop=/bin/bash /Apps/docker/servicio-db-correo/stop-fig.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
