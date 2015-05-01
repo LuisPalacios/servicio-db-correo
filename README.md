@@ -25,7 +25,15 @@ La primera vez que arranques el contenedor es muy importante porque analizará s
 
 Directorio persistente para la estructura MySQL, debe apuntar a un directorio de tu HOST (/Apps/data/correo/db/mysql) que se montará en el contenedor como /var/lib/mysql. En mi caso uso este servicio para BD de correo.
 
-   - "/Apps/data/correo/db/mysql:/var/lib/mysql"  
+   - "/Apps/data/correo/db/mysql:/var/lib/mysql"
+   
+   
+Directorio persistente para configurar el Timezone. Crear el directorio /Apps/data/tz y dentro de él crear el fichero timezone. Luego montarlo con -v o con fig.yml
+
+    Montar:
+       "/Apps/data/tz:/config/tz"  
+    Preparar: 
+       $ echo "Europe/Madrid" > /config/tz/timezone
 
 
 ### Variable: MYSQL_ROOT_PASSWORD

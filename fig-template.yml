@@ -13,21 +13,23 @@
 #   la base de datos de un servicio de correo electrónico. La base de datos
 #   será consumida por postfix, courier-imap, amavisd, roundcube, etc...
 #
+#  Troubleshooting:
+#  docker run --rm -t -i -p 33000:3306 -e MYSQL_ROOT_PASSWORD="rootdocker" -v /Apps/data/correo/db/mysql:/var/lib/mysql -v /Apps/data/tz:/config/tz luispa/base-mysql /bin/bash
 mysql:
   
   image: luispa/base-mysql
   
   environment:
-    MYSQL_ROOT_PASSWORD: miContraseñaDeRoot
+    MYSQL_ROOT_PASSWORD: contraseñaderoot
   
   # Directorio de datos de MySQL: /var/lib/mysql
   volumes:
     - "/Apps/data/correo/db/mysql:/var/lib/mysql"  
-    - "/etc/localtime:/etc/localtime:ro"
-
+    - "/Apps/data/tz:/config/tz"
+  
   # Puerto externo
   ports:
     - "33000:3306"
 
-  command: /usr/local/mysql/bin/mysqld --datadir=/var/lib/mysql --user=mysql
+  command: /usr/sbin/mysqld --datadir=/var/lib/mysql --user=mysql
 
